@@ -1,0 +1,117 @@
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+form {
+  margin: 7px;
+  padding: 5px;
+}
+
+search:hover {
+  cursor: pointer;
+}
+
+#currentLocation {
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  color: #495057;
+  display: block;
+  transition: ease-in-out;
+}
+
+#currentLocation:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+h1 {
+  color: #14274e;
+  font-weight: bold;
+  line-height: 45px;
+  margin-top: 10px;
+  margin-left: 12px;
+  padding: 5px;
+  text-align: center;
+}
+
+li {
+  color: #7c7c7c;
+  display: block;
+  font-size: 16px;
+  font-weight: 100;
+  height: 19px;
+  line-height: 1px;
+  list-style: none;
+  margin: 5px auto;
+}
+
+ul {
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+#description,
+#humidity,
+#wind {
+  text-align: center;
+}
+
+.weather-app {
+  border: 1px solid #555555;
+  border-radius: 4px;
+  margin: 20px auto;
+  max-width: 1000px;
+  padding: 20px;
+}
+
+.weather-icon {
+  float: left;
+  margin-right: 10px;
+}
+
+.temperature {
+  color: #14274e;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.units {
+  color: #14274e;
+  position: relative;
+  top: -15px;
+}
+
+a {
+  color: #14274e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #14274e;
+  text-decoration: none;
+}
+
+.card {
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  display: block;
+  height: 200px;
+  margin: 10px auto;
+  width: 100%;
+}
+
+.card-img-top {
+  display: block;
+  margin: 0 auto;
+  width: 65%;
+}
+
+.card-title,
+.card-text {
+  color: #7c7c7c;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 17px;
+}
