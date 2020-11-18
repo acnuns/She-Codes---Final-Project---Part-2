@@ -1,6 +1,6 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
-  max-width: 600px;
+  max-width: 800px;
   margin: 10px auto;
 }
 
@@ -52,6 +52,11 @@ ul {
   padding: 0;
 }
 
+small {
+  font-style: italic;
+  text-align: center;
+}
+
 #description,
 #humidity,
 #wind {
@@ -98,8 +103,8 @@ a:hover {
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
   display: block;
   height: 200px;
-  margin: 10px auto;
-  width: 100%;
+  margin: 5px auto;
+  max-width: 300px;
 }
 
 .card-img-top {
