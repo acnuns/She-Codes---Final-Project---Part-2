@@ -101,25 +101,30 @@ a:hover {
 }
 
 .card {
-  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
   display: block;
   height: 200px;
   margin: 5px auto;
   max-width: 300px;
 }
 
-.card-img-top {
+.card-title {
   display: block;
   margin: 0 auto;
-  width: 65%;
+  width: 50px;
 }
 
-.card-title,
+.card-img-top,
 .card-text {
-  color: #7c7c7c;
+  color: #14274e;
   text-align: center;
 }
 
-.card-title {
+.card-text {
+  margin-top: 5px;
+}
+
+.card-img-top {
   font-size: 17px;
+  margin-top: 12px;
 }
