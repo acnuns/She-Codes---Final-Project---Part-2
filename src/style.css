@@ -74,6 +74,7 @@ small {
 .weather-icon {
   float: left;
   margin-right: 10px;
+  max-width: 800px;
 }
 
 .temperature {
