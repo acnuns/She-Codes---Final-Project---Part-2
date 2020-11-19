@@ -50,7 +50,7 @@ function displayForecast(response) {
     <div class="card-body">
           <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="Sunny" class="card-title" />
         <p class="card-text">
-          <strong>${Math.round(forecast.main.temp_max)}&#8457</strong>${Math.round(forecast.main.temp_min)}&#8457
+          <strong>${Math.round(forecast.main.temp_max)}&#8457</strong><br />${Math.round(forecast.main.temp_min)}&#8457
         </p>
     </div>
     </div>
