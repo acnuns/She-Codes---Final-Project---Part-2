@@ -10,7 +10,7 @@ function showTemperature(response) {
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
-  iconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("src",`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
@@ -30,7 +30,7 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showTemperature);
 
-  apiUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -48,7 +48,7 @@ function displayForecast(response) {
           ${formatHours(forecast.dt * 1000)}
         </h5>
     <div class="card-body">
-          <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="Sunny" class="card-title" />
+          <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="Sunny" class="card-title" />
         <p class="card-text">
           <strong>${Math.round(forecast.main.temp_max)}&#8457</strong>${Math.round(forecast.main.temp_min)}&#8457
         </p>
