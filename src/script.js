@@ -1,7 +1,8 @@
 // Current Temperature
 function showTemperature(response) {
+  farTemperature = response.data.main.temp;
   let currentTemp = document.querySelector("#currentTemp");
-  let temperature = Math.round(response.data.main.temp);
+  let temperature = Math.round(farTemperature);
   let iconElement = document.querySelector("#icon");
   currentTemp.innerHTML = temperature;
 
@@ -49,17 +50,17 @@ function currentLocation(event) {
 // Celsius Temperature
 function currentTempC(event) {
   event.preventDefault();
-  let celTemp = document.querySelector(".temperature");
-  celTemp.innerHTML=8;
+  let temperatureElement = document.querySelector(".temperature");
+  let celTemp = Math.round((farTemperature - 32) * 5/9);
+  temperatureElement.innerHTML = celTemp;
 }
 
 // Far Temperature
 function currentTempF(event) {
   event.preventDefault();
   let farTemp = document.querySelector(".temperature");
-  farTemp.innerHTML=46;
+  farTemp.innerHTML = Math.round(farTemperature);
 }
-
 
 let now = new Date();
 let currentDate = document.querySelector("#date");
@@ -79,6 +80,8 @@ let currentDate = document.querySelector("#date");
   let minutes = now.getMinutes();
 
 currentDate.innerHTML=`${day} ${hours}:${minutes}`;
+
+let farTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitSearch);
