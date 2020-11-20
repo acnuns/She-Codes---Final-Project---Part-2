@@ -30,8 +30,8 @@ function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showTemperature);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(displayForecast);
+  apiUrl2 = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl2).then(displayForecast);
 }
 
 function displayForecast(response) {
@@ -58,7 +58,6 @@ function displayForecast(response) {
 `;
   }  
 
-
 }
 
 function formatHours (timestamp) {
@@ -73,7 +72,6 @@ function formatHours (timestamp) {
   }
   return `${hours}:${minutes}`;
 }
-
 
 
 // Search Location - Coordinates
