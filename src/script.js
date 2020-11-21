@@ -38,26 +38,31 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
-
-  for (let index= 0; index < 6; index++) {
-  let forecast = response.data.list[index];
-  forecastElement.innerHTML += `            
+  
+  for (let index = 0; index < 6; index++) {
+    let forecast = response.data.list[index];
+    forecastElement.innerHTML += `            
   <div class="col-2">
     <div class="card">
         <h5 class="card-img-top">
           ${formatHours(forecast.dt * 1000)}
         </h5>
     <div class="card-body">
-          <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" alt="Sunny" class="card-title" />
+          <img src="https://openweathermap.org/img/wn/${
+            forecast.weather[0].icon
+          }@2x.png" alt="Sunny" class="card-title" />
         <p class="card-text">
-          <strong>${Math.round(forecast.main.temp_max)}&#8457</strong><br />${Math.round(forecast.main.temp_min)}&#8457
+          <strong><span class="forecast-max">${Math.round(
+            forecast.main.temp_max
+          )}&#8457</span></strong><br /><span class="forecast-min">${Math.round(
+      forecast.main.temp_min
+    )}&#8457</span>
         </p>
     </div>
     </div>
 </div>
 `;
-  }  
-
+  }
 }
 
 function formatHours (timestamp) {
@@ -94,15 +99,50 @@ function currentLocation(event) {
 function currentTempC(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector(".temperature");
-  let celTemp = Math.round((farTemperature - 32) * 5/9);
+  let celTemp = Math.round(((farTemperature - 32) * 5) / 9);
   temperatureElement.innerHTML = celTemp;
+  let forecastMax = document.querySelectorAll(".forecast-max");
+  forecastMax.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // remove the C sign
+    currentTemp = currentTemp.replace("℉", "");
+    // convert to Fahrenheit
+    item.innerHTML = `${Math.round(((currentTemp - 32) * 5) / 9)}&#8451`;
+  });
+  let forecastMin = document.querySelectorAll(".forecast-min");
+  forecastMin.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // remove the C sign
+    currentTemp = currentTemp.replace("℉", "");
+    // convert to Fahrenheit
+    item.innerHTML = `${Math.round(((currentTemp - 32) * 5) / 9)}&#8451`;
+  });
 }
-
 // Far Temperature
 function currentTempF(event) {
   event.preventDefault();
   let farTemp = document.querySelector(".temperature");
   farTemp.innerHTML = Math.round(farTemperature);
+  let forecastMax = document.querySelectorAll(".forecast-max");
+  forecastMax.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // remove the C sign
+    currentTemp = currentTemp.replace("℃", "");
+    // convert to Fahrenheit
+    item.innerHTML = `${Math.round((currentTemp * 9) / 5 + 32)}℉`;
+  });
+  let forecastMin = document.querySelectorAll(".forecast-min");
+  forecastMin.forEach(function (item) {
+    // grabbing the current value to convert
+    let currentTemp = item.innerHTML;
+    // remove the C sign
+    currentTemp = currentTemp.replace("℃", "");
+    // convert to Fahrenheit
+    item.innerHTML = `${Math.round((currentTemp * 9) / 5 + 32)}&#8457`;
+  });
 }
 
 let now = new Date();
